@@ -1,0 +1,30 @@
+# Reto opcional sin paredes: el oro está en la esquina superior derecha y un pit
+# bloquea su acceso lateral. El Wumpus controla la aproximación por la columna 4:
+# su hedor impide que el agente basado en modelo certifique la ruta, mientras que
+# los agentes de metas y utilidad pueden localizarlo, disparar y llegar al oro.
+
+grid:
+  width: 4
+  height: 4
+
+agent:
+  start: [1, 1]
+  direction: east
+  arrows: 1
+
+wumpus: [4, 2]
+
+pits:
+  - [1, 3]
+  - [1, 4]
+  - [3, 4]
+
+gold: [4, 4]
+
+scoring:
+  gold: 1000
+  death: -1000
+  step: -1
+  shoot: -10
+
+max_steps: 200

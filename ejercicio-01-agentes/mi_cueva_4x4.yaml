@@ -1,0 +1,29 @@
+# Cueva principal de dificultad intermedia: el oro está en la esquina superior
+# derecha y el Wumpus protege su acceso lateral. Los pits están distribuidos para
+# impedir una ruta directa, pero existe un camino seguro por el centro y (4, 3).
+
+grid:
+  width: 4
+  height: 4
+
+agent:
+  start: [1, 1]
+  direction: east
+  arrows: 1
+
+wumpus: [3, 4]
+
+pits:
+  - [1, 3]
+  - [2, 4]
+  - [4, 1]
+
+gold: [4, 4]
+
+scoring:
+  gold: 1000
+  death: -1000
+  step: -1
+  shoot: -10
+
+max_steps: 200
