@@ -12,11 +12,13 @@ Carpetas organizadas según `Lista_de_ejercicios.md` del repositorio del profeso
 | [Ejercicio 6](Ejercicio%206/) | Perceptrón multicapa, ejercicio 1 |
 | [Ejercicio 7](Ejercicio%207/) | Clustering con k-medias, ejercicio 1 |
 | [Ejercicio 8](Ejercicio%208/) | Q-learning, ejercicio 1 |
+| [Ejercicio 9](Ejercicio%209/) | Razonamiento lógico, ejercicio 1 |
 
 ## Extras
 
 - [Mapa de México](Extras/Mapa%20de%20Mexico/): ejercicio 2 de búsqueda informada.
 - [Laberinto](Extras/Q-learning_laberinto/): segundo proyecto de Q-learning.
+- [Razonamiento probabilístico](Extras/Razonamiento_probabilistico/): red de escenarios sobre avance de IA y empleo de software en 2031.
 
 Para correr la tarea de Q-learning desde la raíz del repo:
 

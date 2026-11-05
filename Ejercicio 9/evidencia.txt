@@ -1,0 +1,135 @@
+BASE ORIGINAL
+=================================================================
+
+HACIA ADELANTE
+Consulta: AccesoNoche(Ana)
+Hechos iniciales: Estudiante(Ana), Estudiante(Luis), Profesor(Marta), TieneCredencial(Ana), TieneCredencial(Marta), HorarioNocturno(Hoy)
+Ronda 1:
+  R_miembro_est con {'x': 'Ana'} -> Miembro(Ana)
+  R_miembro_prof con {'x': 'Marta'} -> Miembro(Marta)
+  R_beca con {'x': 'Ana'} -> Becario(Ana)
+Ronda 2:
+  R_acceso con {'x': 'Ana'} -> AccesoNoche(Ana)
+  R_acceso con {'x': 'Marta'} -> AccesoNoche(Marta)
+Ronda 3:
+  No hay hechos nuevos. Terminó el razonamiento.
+Resultado: PROBADA
+Átomos nuevos: Miembro(Ana), Miembro(Marta), Becario(Ana), AccesoNoche(Ana), AccesoNoche(Marta)
+
+HACIA ATRÁS
+Meta: AccesoNoche(Ana)
+Intentar R_acceso con {'x': 'Ana'}
+  Meta: Miembro(Ana)
+  Intentar R_miembro_est con {'x': 'Ana'}
+    Meta: Estudiante(Ana)
+    Hecho encontrado: Estudiante(Ana)
+    Meta: TieneCredencial(Ana)
+    Hecho encontrado: TieneCredencial(Ana)
+  Probada con R_miembro_est: Miembro(Ana)
+  Meta: HorarioNocturno(Hoy)
+  Hecho encontrado: HorarioNocturno(Hoy)
+Probada con R_acceso: AccesoNoche(Ana)
+Resultado: PROBADA
+
+HACIA ADELANTE
+Consulta: AccesoNoche(Luis)
+Hechos iniciales: Estudiante(Ana), Estudiante(Luis), Profesor(Marta), TieneCredencial(Ana), TieneCredencial(Marta), HorarioNocturno(Hoy)
+Ronda 1:
+  R_miembro_est con {'x': 'Ana'} -> Miembro(Ana)
+  R_miembro_prof con {'x': 'Marta'} -> Miembro(Marta)
+  R_beca con {'x': 'Ana'} -> Becario(Ana)
+Ronda 2:
+  R_acceso con {'x': 'Ana'} -> AccesoNoche(Ana)
+  R_acceso con {'x': 'Marta'} -> AccesoNoche(Marta)
+Ronda 3:
+  No hay hechos nuevos. Terminó el razonamiento.
+Resultado: NO PROBADA
+Átomos nuevos: Miembro(Ana), Miembro(Marta), Becario(Ana), AccesoNoche(Ana), AccesoNoche(Marta)
+
+HACIA ATRÁS
+Meta: AccesoNoche(Luis)
+Intentar R_acceso con {'x': 'Luis'}
+  Meta: Miembro(Luis)
+  Intentar R_miembro_est con {'x': 'Luis'}
+    Meta: Estudiante(Luis)
+    Hecho encontrado: Estudiante(Luis)
+    Meta: TieneCredencial(Luis)
+    No se pudo probar: TieneCredencial(Luis)
+  Falló R_miembro_est
+  Intentar R_miembro_prof con {'x': 'Luis'}
+    Meta: Profesor(Luis)
+    No se pudo probar: Profesor(Luis)
+  Falló R_miembro_prof
+  No se pudo probar: Miembro(Luis)
+Falló R_acceso
+No se pudo probar: AccesoNoche(Luis)
+Resultado: NO PROBADA
+
+HACIA ADELANTE
+Consulta: AccesoNoche(Marta)
+Hechos iniciales: Estudiante(Ana), Estudiante(Luis), Profesor(Marta), TieneCredencial(Ana), TieneCredencial(Marta), HorarioNocturno(Hoy)
+Ronda 1:
+  R_miembro_est con {'x': 'Ana'} -> Miembro(Ana)
+  R_miembro_prof con {'x': 'Marta'} -> Miembro(Marta)
+  R_beca con {'x': 'Ana'} -> Becario(Ana)
+Ronda 2:
+  R_acceso con {'x': 'Ana'} -> AccesoNoche(Ana)
+  R_acceso con {'x': 'Marta'} -> AccesoNoche(Marta)
+Ronda 3:
+  No hay hechos nuevos. Terminó el razonamiento.
+Resultado: PROBADA
+Átomos nuevos: Miembro(Ana), Miembro(Marta), Becario(Ana), AccesoNoche(Ana), AccesoNoche(Marta)
+
+HACIA ATRÁS
+Meta: AccesoNoche(Marta)
+Intentar R_acceso con {'x': 'Marta'}
+  Meta: Miembro(Marta)
+  Intentar R_miembro_est con {'x': 'Marta'}
+    Meta: Estudiante(Marta)
+    No se pudo probar: Estudiante(Marta)
+  Falló R_miembro_est
+  Intentar R_miembro_prof con {'x': 'Marta'}
+    Meta: Profesor(Marta)
+    Hecho encontrado: Profesor(Marta)
+  Probada con R_miembro_prof: Miembro(Marta)
+  Meta: HorarioNocturno(Hoy)
+  Hecho encontrado: HorarioNocturno(Hoy)
+Probada con R_acceso: AccesoNoche(Marta)
+Resultado: PROBADA
+
+
+CASO ADICIONAL: LUIS TIENE CREDENCIAL
+=================================================================
+
+HACIA ADELANTE
+Consulta: AccesoNoche(Luis)
+Hechos iniciales: Estudiante(Ana), Estudiante(Luis), Profesor(Marta), TieneCredencial(Ana), TieneCredencial(Marta), HorarioNocturno(Hoy), TieneCredencial(Luis)
+Ronda 1:
+  R_miembro_est con {'x': 'Ana'} -> Miembro(Ana)
+  R_miembro_est con {'x': 'Luis'} -> Miembro(Luis)
+  R_miembro_prof con {'x': 'Marta'} -> Miembro(Marta)
+  R_beca con {'x': 'Ana'} -> Becario(Ana)
+  R_beca con {'x': 'Luis'} -> Becario(Luis)
+Ronda 2:
+  R_acceso con {'x': 'Ana'} -> AccesoNoche(Ana)
+  R_acceso con {'x': 'Luis'} -> AccesoNoche(Luis)
+  R_acceso con {'x': 'Marta'} -> AccesoNoche(Marta)
+Ronda 3:
+  No hay hechos nuevos. Terminó el razonamiento.
+Resultado: PROBADA
+Átomos nuevos: Miembro(Ana), Miembro(Luis), Miembro(Marta), Becario(Ana), Becario(Luis), AccesoNoche(Ana), AccesoNoche(Luis), AccesoNoche(Marta)
+
+HACIA ATRÁS
+Meta: AccesoNoche(Luis)
+Intentar R_acceso con {'x': 'Luis'}
+  Meta: Miembro(Luis)
+  Intentar R_miembro_est con {'x': 'Luis'}
+    Meta: Estudiante(Luis)
+    Hecho encontrado: Estudiante(Luis)
+    Meta: TieneCredencial(Luis)
+    Hecho encontrado: TieneCredencial(Luis)
+  Probada con R_miembro_est: Miembro(Luis)
+  Meta: HorarioNocturno(Hoy)
+  Hecho encontrado: HorarioNocturno(Hoy)
+Probada con R_acceso: AccesoNoche(Luis)
+Resultado: PROBADA

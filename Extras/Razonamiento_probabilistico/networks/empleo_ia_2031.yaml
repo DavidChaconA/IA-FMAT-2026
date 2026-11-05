@@ -1,0 +1,120 @@
+# TODOS los numeros de esta red son supuestos didacticos, no frecuencias observadas.
+# Fuentes, definiciones y justificacion: MODELO.md e INVESTIGACION.md.
+# P(A)=0.5 es una referencia de exploracion, NO una estimacion de METR.
+name: Empleo de software en 2031 — ESCENARIO ILUSTRATIVO, no prediccion validada
+variables:
+- id: A
+  label: Avance alto de IA en 2031
+- id: T
+  label: Automatizacion alta de tareas
+- id: N
+  label: Expansion de nuevos proyectos por IA
+- id: D
+  label: Demanda favorable de desarrolladores
+- id: E
+  label: Al menos un año de experiencia remunerada
+- id: H
+  label: Supera evaluacion de desarrollo con IA
+- id: O
+  label: Oferta de software en seis meses
+structure:
+  A: []
+  T:
+  - A
+  N:
+  - A
+  D:
+  - T
+  - N
+  E: []
+  H:
+  - E
+  O:
+  - D
+  - E
+  - H
+cpts:
+  A: 0.5
+  T:
+  - when:
+      A: false
+    p_true: 0.2
+  - when:
+      A: true
+    p_true: 0.75
+  N:
+  - when:
+      A: false
+    p_true: 0.25
+  - when:
+      A: true
+    p_true: 0.65
+  D:
+  - when:
+      T: false
+      N: false
+    p_true: 0.55
+  - when:
+      T: false
+      N: true
+    p_true: 0.85
+  - when:
+      T: true
+      N: false
+    p_true: 0.2
+  - when:
+      T: true
+      N: true
+    p_true: 0.6
+  E: 0.5
+  H:
+  - when:
+      E: false
+    p_true: 0.4
+  - when:
+      E: true
+    p_true: 0.7
+  O:
+  - when:
+      D: false
+      E: false
+      H: false
+    p_true: 0.1
+  - when:
+      D: false
+      E: false
+      H: true
+    p_true: 0.3
+  - when:
+      D: false
+      E: true
+      H: false
+    p_true: 0.25
+  - when:
+      D: false
+      E: true
+      H: true
+    p_true: 0.55
+  - when:
+      D: true
+      E: false
+      H: false
+    p_true: 0.35
+  - when:
+      D: true
+      E: false
+      H: true
+    p_true: 0.6
+  - when:
+      D: true
+      E: true
+      H: false
+    p_true: 0.65
+  - when:
+      D: true
+      E: true
+      H: true
+    p_true: 0.85
+query:
+  variable: O
+  evidence: {}
